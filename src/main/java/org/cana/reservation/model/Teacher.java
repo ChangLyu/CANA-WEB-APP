@@ -6,12 +6,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class Teacher {
+	private long id;
 	private String emailAddress;
 	private String password;
 	private String firstName;
 	private String lastName;
 	private int age;
-	private double phoneNumber;
+	private String phoneNumber;
 	private Date dateCreated;
 	private String major;
 	//Admin, teacher or student
@@ -23,7 +24,8 @@ public class Teacher {
 		
 	}
 	
-	public Teacher(String emailAddress, String password, String firstName, String lastName, int age, double phoneNumber, String major, String type, String description){
+	public Teacher(long id, String emailAddress, String password, String firstName, String lastName, int age, String phoneNumber, String major, String type, String description){
+		this.id = id;
 		this.emailAddress = emailAddress;
 		this.password = password;
 		this.firstName = firstName;
@@ -37,6 +39,14 @@ public class Teacher {
 	
 	
 	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
 	public String getEmailAddress() {
 		return emailAddress;
 	}
@@ -77,11 +87,11 @@ public class Teacher {
 		this.age = age;
 	}
 	
-	public double getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 	
-	public void setPhoneNumber(double phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 	

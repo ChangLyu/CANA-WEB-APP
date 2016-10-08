@@ -6,7 +6,8 @@ import java.util.Date;
 import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Student {
-
+		//Primary Key
+		private long id;
 		private String emailAddress;
 		private String password;
 		private String firstName;
@@ -15,9 +16,9 @@ public class Student {
 		private String phoneNumber;
 		private Date dateCreated;
 		//Not interviewed before (0), after interview (1), finish lessons(2), found a job(3) 
-		private int status;
+		private int interview_status;
 		//International student(0), work permit(1), permanent resident(2), citizen(3)
-		private int identity;
+		private int visa_status;
 		private String major;
 		private String type;
 		//Describe the process in CANA, will be updated after each course
@@ -29,20 +30,46 @@ public class Student {
 			
 		}
 		
-		public Student(String emailAddress, String password, String firstName, String lastName, int age, String phoneNumber, int status, int identity, String major, String type, String description){
+		public Student(long id, String emailAddress, String password, String firstName, String lastName, int age, String phoneNumber, int interview_status, int visa_status, String major, String type, String description){
+			this.id = id;
 			this.emailAddress = emailAddress;
 			this.password = password;
 			this.firstName = firstName;
 			this.lastName = lastName;
 			this.age = age;
 			this.phoneNumber = phoneNumber;
-			this.status = status;
-			this.identity = identity;
+			this.interview_status = interview_status;
+			this.visa_status = visa_status;
 			this.major = major;
 			this.type = type;
 			this.description = description;
 		}
 		
+		
+		public long getId() {
+			return id;
+		}
+
+		public void setId(long id) {
+			this.id = id;
+		}
+
+		public int getInterview_status() {
+			return interview_status;
+		}
+
+		public void setInterview_status(int interview_status) {
+			this.interview_status = interview_status;
+		}
+
+		public int getVisa_status() {
+			return visa_status;
+		}
+
+		public void setVisa_status(int visa_status) {
+			this.visa_status = visa_status;
+		}
+
 		public String getEmailAddress() {
 			return emailAddress;
 		}
@@ -81,22 +108,6 @@ public class Student {
 
 		public void setPhoneNumber(String phoneNumber) {
 			this.phoneNumber = phoneNumber;
-		}
-
-		public int getStatus() {
-			return status;
-		}
-
-		public void setStatus(int status) {
-			this.status = status;
-		}
-
-		public int getIdentity() {
-			return identity;
-		}
-
-		public void setIdentity(int identity) {
-			this.identity = identity;
 		}
 
 		public String getMajor() {
